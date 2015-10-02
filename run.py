@@ -1,7 +1,22 @@
+from __future__ import with_statement
 from flask import Flask, render_template
 from twilio.util import TwilioCapability
+import twilio.twiml
 
 app = Flask(__name__)
+
+#add a twilio phone number or number verified with twilio as the caller id
+caller_id = "+14803761510"
+
+@app.route('/voice', methods=["GET", "POST"])
+def voice():
+	resp = twilio.twiml.Response()
+
+	# nest <Client> TwiML inside of a <Dial> verb
+	with resp.dial(caller_Id=caller_id) as r:
+		r.client("jessica")
+
+	return str(resp)
 
 @app.route("/client", methods=["GET", "POST"])
 def client():
@@ -16,7 +31,7 @@ def client():
 
 	capability = TwilioCapability(account_sid, auth_token)
 	capability.allow_client_outgoing(application_sid)
-
+	capability.allow_client_incoming("jessica")
 	token = capability.generate()
 
 	return render_template('client.html', token=token)
