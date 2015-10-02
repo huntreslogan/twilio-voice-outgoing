@@ -22,7 +22,6 @@ def voice():
 		if dest_number and re.search('^[\d\(\)\- \+]+$', dest_number):
 			r.number(dest_number)
 		else:
-
 			r.client(default_client)
 
 	return str(resp)
