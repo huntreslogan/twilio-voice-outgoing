@@ -27,7 +27,7 @@ def client():
 	auth_token = "c3c87709f501e8018bae7275d929db6f"
 
 	#this is a special quick-start application sid
-	application_sid = "APabe7650f654fc34655fc81ae71caa3ff"
+	application_sid = "AP8054054b272a4dfe39bde3f53172359b"
 
 	capability = TwilioCapability(account_sid, auth_token)
 	capability.allow_client_outgoing(application_sid)
