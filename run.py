@@ -7,7 +7,7 @@ import re
 app = Flask(__name__)
 
 #add a twilio phone number or number verified with twilio as the caller id
-caller_id = "+14803761510"
+caller_id = "+12125551234"
 default_client = "jessica"
 
 @app.route('/voice', methods=["GET", "POST"])
@@ -29,14 +29,12 @@ def voice():
 @app.route("/client", methods=["GET", "POST"])
 def client():
 
-	#add your account sid
-	account_sid = "AC0bcd7ce3b4dfef5983ee48a0189618d8"
-	#add your auth token
-	auth_token = "c3c87709f501e8018bae7275d929db6f"
+	   # Find these values at twilio.com/user/account
+    account_sid = "AC123123aaaaaaaaaaaaaaaaaa"
+    auth_token = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 
 	#this is a special quick-start application sid
-	application_sid = "AP8054054b272a4dfe39bde3f53172359b"
-
+	application_sid = "APabe7650f654fc34655fc81ae71caa3ff" # Twilio Application Sid
 	capability = TwilioCapability(account_sid, auth_token)
 	capability.allow_client_outgoing(application_sid)
 	capability.allow_client_incoming("jessica")
