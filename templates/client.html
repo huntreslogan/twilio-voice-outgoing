@@ -39,6 +39,12 @@
     	// accept the incoming connections and start two-way audio
     	conn.accept();
     });
+
+    function call() {
+    	/* get the phone number to connect the call to params = {"PhoneNumber" : $("#number").val()}; */
+    	Twilio.Device.connect(params);
+    }
+
     /* Connect to Twilio when we call this function. */
     function call() {
         Twilio.Device.connect();
@@ -58,6 +64,8 @@
     <button class="hangup" onclick="hangup();">
     	Hangup
     </button>
+
+    <input type="text" id="number" name="number" placeholder="Enter a phone number to call" />
 
     <div id="log">Loading pigeons...</div>
   </body>
