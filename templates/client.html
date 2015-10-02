@@ -45,11 +45,6 @@
     	Twilio.Device.connect(params);
     }
 
-    /* Connect to Twilio when we call this function. */
-    function call() {
-        Twilio.Device.connect();
-    }
-
     /* A function to end a connection to Twilio. */
     function hangup() {
     	Twilio.Device.disconnectAll();
